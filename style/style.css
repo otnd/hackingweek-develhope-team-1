@@ -10921,4 +10921,53 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+#sidebar-container {
+  z-index: 2;
+}
+
+aside {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.nav-show {
+  height: 100vh;
+  margin-left: 0;
+  overflow-x: hidden;
+  transition: all 0.25s linear;
+}
+
+.nav-hide {
+  margin-left: -256px;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+}
+
+#toggle-menu-container {
+  height: 56px;
+  width: 56px;
+  top: 0;
+  right: -56px;
+}
+#toggle-menu-container svg {
+  border-radius: 0px 4px 4px 0px;
+}
+#toggle-menu-container svg:hover {
+  cursor: pointer;
+}
+
+.overlay-show {
+  visibility: visible;
+  opacity: 0.5;
+  transition: all 0.25s;
+}
+
+.overlay-hide {
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
 }/*# sourceMappingURL=style.css.map */
