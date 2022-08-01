@@ -1,2 +1,59 @@
-@import '../node_modules/bootstrap/scss/bootstrap.scss'
+@import "../node_modules/bootstrap/scss/bootstrap";
 
+#sidebar-container{
+    z-index: 2;
+}
+
+aside{
+    width: fit-content;
+}
+
+//mostra l'elemento <nav> (il menu) nell'aside
+.nav-show{
+    height: 100vh;
+    margin-left: 0;
+    overflow-x: hidden;
+
+    transition: all 0.25s linear;
+}
+
+//nasconde l'elemento <nav> (il menu) nell'aside
+.nav-hide{
+    margin-left: -256px;
+
+}
+
+//modifica il cursore sull'hover
+.list-group-item:hover{
+    cursor: pointer;
+}
+
+//dimensioni e posizionamento dell'icona del menu
+#toggle-menu-container{
+    height: 56px;
+    width: 56px;
+
+    top: 0;
+    right: -56px;
+
+    svg{
+        border-radius: 0px 4px 4px 0px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+//mostra l'overlay, in maniera tale da far apparire la navbar in sovrimpressione
+.overlay-show{
+    visibility: visible;
+    opacity: 0.5;
+    transition: all 0.25s;
+}
+
+//nasconde l'overlay
+.overlay-hide{
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+}
