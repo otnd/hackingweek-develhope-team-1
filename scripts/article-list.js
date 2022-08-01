@@ -1,11 +1,11 @@
 let table = document.querySelector('table');
   let tbody = document.querySelector('tbody');
+  let baseUrl = 'https://api.spaceflightnewsapi.net/v3/articles';
 
-  async function createTable(){ 
-  let response = await fetch('https://api.spaceflightnewsapi.net/v3/articles')
+  async function createTable(endpoint){
+  let response = await fetch(endpoint);
     console.log(response);
   let articles = await response.json();
-  console.log(articles)
   articles.forEach(article => {
     let tr = document.createElement('tr')
     tbody.append(tr)
@@ -23,10 +23,7 @@ let table = document.querySelector('table');
       td.innerHTML = article.title;
     }
     if(i == 2) {
-      let strDate = article.publishedAt.split('')
       let data = article.publishedAt.slice(0,10)
-      console.log(strDate)
-      console.log(data)
       td.innerHTML = data;
     }
     if(i == 3) {
@@ -36,8 +33,39 @@ let table = document.querySelector('table');
       url.innerHTML = 'Vai alla pagina'
     }
     }
-    console.log(tr)
-    
     })
   }
-  createTable();
+  createTable(baseUrl);
+  
+  let skipArticle = 0;
+  function nextPage(){
+    skipArticle += 10;
+  }
+  let previousButton = document.getElementById('previous-button')
+  let nextButton = document.getElementById("next-button")
+  nextButton.addEventListener('click', () => {
+    if(skipArticle == 0) {
+      previousButton.classList.remove('text-muted')
+    }
+    tbody.innerHTML = '';
+    nextPage()
+    let nextBaseUrl = `${baseUrl}?_start=${skipArticle}`
+    createTable(nextBaseUrl)
+  })
+  previousButton.addEventListener('click', () => {
+    if(skipArticle == 0){
+      return;
+    }
+    if(skipArticle == 10) {
+      tbody.innerHTML = ''
+      createTable(baseUrl)
+      skipArticle = 0
+      previousButton.classList.add('text-muted')
+    } else {
+      tbody.innerHTML ='';
+      skipArticle -= 10;
+      let previousBaseUrl = `${baseUrl}?_start=${skipArticle}`
+      createTable(previousBaseUrl)
+    }
+
+  })
