@@ -2275,7 +2275,6 @@ textarea.form-control-lg {
      -moz-appearance: none;
           appearance: none;
   -webkit-print-color-adjust: exact;
-     color-adjust: exact;
           print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
@@ -10960,14 +10959,6 @@ aside {
   cursor: pointer;
 }
 
-.overlay-show {
-  visibility: visible;
-  opacity: 0.5;
-  transition: all 0.25s;
-}
-
-.overlay-hide {
-  z-index: 1;
-  visibility: hidden;
-  opacity: 0;
+.hide-container {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

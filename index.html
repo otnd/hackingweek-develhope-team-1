@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="it">
 
 <head>
     <meta charset="UTF-8">
@@ -6,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team 1 - Hacking Week</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script/calendar.js" defer></script>
-    <script src="script/articles.js" defer></script>
-    <script src="script/statistics.js" defer></script>
+    <link rel="stylesheet" href="style/fullcalendar.css">
     <script src="script/sidebar-animation.js" defer></script>
+    <script src="script/calendar.js" defer></script>
+    <script src="script/fullcalendar.js" defer></script>
+    <script src="script/it.js" defer></script>
+    <script src="script/article-list.js" defer></script>
+    <script src="script/statistics.js" defer></script>
 </head>
 
 <body>
@@ -29,23 +33,23 @@
                 <ul class="list-group list-group-flush">
                     <!--voce 'Calendario'-->
                     <li id="calendar" class="list-group-item list-group-item-light list-group-item-action p-3">
-                        Calendar
+                        Calendario
                     </li>
                     <!--voce 'Lista articoli'-->
                     <li id="articles" class="list-group-item list-group-item-light list-group-item-action p-3">
-                        Articles
+                        Articoli
                     </li>
                     <!--voce 'Statistiche'-->
                     <li id="statistics"
                         class="list-group-item list-group-item-light list-group-item-action border-bottom  p-3">
-                        Statistics
+                        Statistiche
                     </li>
                 </ul>
             </nav>
 
             <!--menu icon-->
             <div id="toggle-menu-container" class="d-flex align-items-center text-white position-absolute">
-                <svg id="toggle-menu" class="bg-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <svg id="toggle-menu" class="bg-primary bi bi-list" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewbox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </div>
@@ -53,8 +57,8 @@
         </aside>
     </div>
 
-    <!--overlay della pagina all'apertura della sidebar-->
-    <div id="overlay" class="bg-dark vh-100 vw-100 position-fixed overlay-show"></div>
+    <!--div dinamica del calendario-->
+    <div id="fullcalendar"></div>
 
 </body>
 

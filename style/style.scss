@@ -44,16 +44,6 @@ aside{
     }
 }
 
-//mostra l'overlay, in maniera tale da far apparire la navbar in sovrimpressione
-.overlay-show{
-    visibility: visible;
-    opacity: 0.5;
-    transition: all 0.25s;
-}
-
-//nasconde l'overlay
-.overlay-hide{
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
+.hide-container {
+    display:none;
 }
