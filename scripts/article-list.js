@@ -29,6 +29,7 @@ let table = document.querySelector('table');
     if(i == 3) {
       let url = document.createElement('a')
       url.setAttribute('href', `${article.url}`)
+      url.classList.add('text-decoration-none', 'link-primary')
       td.append(url)
       url.innerHTML = 'Vai alla pagina'
     }
@@ -87,7 +88,7 @@ getOption();
 
 select.addEventListener('change', () => {
   let selectUrl = `https://api.spaceflightnewsapi.net/v3/articles?newsSite_contains=${select.value}`
-  tbody.innerHTML= ''
+  tbody.innerHTML = ''
   createTable(selectUrl)
 })
 
