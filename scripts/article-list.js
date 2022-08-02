@@ -69,3 +69,30 @@ let table = document.querySelector('table');
     }
 
   })
+
+let select = document.getElementById('table-filter')
+async function getOption() {
+  let response = await fetch('https://api.spaceflightnewsapi.net/v3/info')
+  let data = await response.json();
+  let sources = data.newsSites
+  console.log(sources)
+  sources.map(source => {
+    let option = document.createElement('option')
+    option.setAttribute('value', `${sources.indexOf(source)}`)
+    option.textContent = `${source}`
+    select.append(option)
+  })
+}
+getOption();
+
+select.addEventListener('change', () => {
+  let selectUrl = `https://api.spaceflightnewsapi.net/v3/articles?newsSite_contains=${select.value}`
+  tbody.innerHTML= ''
+  createTable(selectUrl)
+})
+
+let articleSection = document.getElementById('article-section')
+let articleBtn = document.getElementById('article-list')
+articleBtn.addEventListener('click', () => {
+  articleSection.classList.remove('d-none')
+})
