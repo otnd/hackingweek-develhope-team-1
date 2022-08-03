@@ -2275,6 +2275,7 @@ textarea.form-control-lg {
      -moz-appearance: none;
           appearance: none;
   -webkit-print-color-adjust: exact;
+     color-adjust: exact;
           print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
@@ -10959,6 +10960,37 @@ aside {
   cursor: pointer;
 }
 
-.hide-container {
-  display: none;
+#calendar-window {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+.test-div {
+  background-color: white;
+  border: 1rem solid #0d6efd;
+  border-radius: 5%;
+  height: 480px;
+  width: 640px;
+  overflow-y: scroll;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+.fc-daygrid-day:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.fc-toolbar-chunk {
+  margin-left: 2.75rem;
 }/*# sourceMappingURL=style.css.map */
