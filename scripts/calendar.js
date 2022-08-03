@@ -58,6 +58,8 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
 });
 
 
+
+
 //rimuove la finestra quando si clicca al di fuori di questa;
 dayClickWindowEl.addEventListener('click', () => {
     dayClickWindowEl.classList.add('d-none');
@@ -72,6 +74,11 @@ const buttonNext = document.querySelector('.fc-next-button');
 const buttonPrevious = document.querySelector('.fc-prev-button');
 const view = calendar.view;
 
+const todayEndDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)))
+const todayDates = getDates(view.currentStart, todayEndDate)
+dynamicPagination(todayDates)
+
+
 
 //date due date, genera un array di tutte quelle comprese tra queste, convertite in formato ISO,
 //quello che utilizza la proprietà publishedAt;
@@ -84,6 +91,7 @@ function getDates(start, end) {
     }
     return dates;
 }
+
 
 
 //gestisce dinamicamente l'impaginazione del calendario;
