@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style/style.css">
 
     <script src="scripts/sidebar-animation.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="scripts/grafici.js" defer></script>
 </head>
 
 <body>
@@ -43,8 +45,10 @@
 
             <!--menu icon-->
             <div id="toggle-menu-container" class="d-flex align-items-center text-white position-absolute">
-                <svg id="toggle-menu" class="bg-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                <svg id="toggle-menu" class="bg-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                    fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </div>
 
@@ -54,6 +58,38 @@
     <!--overlay della pagina all'apertura della sidebar-->
     <div id="overlay" class="bg-dark vh-100 vw-100 position-fixed overlay-show"></div>
 
+
+    <div class="charts">
+        <canvas id="graficoTorta" style="position: relative;"></canvas>
+
+        <canvas id="spaceFlightInsiderChart"></canvas>
+        <canvas id="nasaSpaceflightChart"></canvas>
+        <canvas id="spaceXchart"></canvas>
+        <canvas id="elonXchart"></canvas>
+        <canvas id="blueOriginChart"></canvas>
+        <canvas id="spaceflightNowChart"></canvas>
+        <canvas id="spaceComChart"></canvas>
+        <canvas id="teslaratiChart"></canvas>
+        <canvas id="virginGalaticChart"></canvas>
+        <canvas id="physChart"></canvas>
+        <canvas id="theJapanTimesChart"></canvas>
+        <canvas id="nationalGeographicChart"></canvas>
+        <canvas id="spaceNewsChart"></canvas>
+        <canvas id="theNationalChart"></canvas>
+        <canvas id="nasaChart"></canvas>
+        <canvas id="theSpaceReviewChart"></canvas>
+        <canvas id="theVergeChart"></canvas>
+        <canvas id="theDriveChart"></canvas>
+        <canvas id="arstechnicaChart"></canvas>
+        <canvas id="esaChart"></canvas>
+        <canvas id="theSpaceDevsChart"></canvas>
+        <canvas id="americaSpaceChart"></canvas>
+        <canvas id="theWallStreetJournalChart"></canvas>
+        <canvas id="cnbcChart"></canvas>
+        <canvas id="reutersChart"></canvas>
+        <canvas id="euronewsChart"></canvas>
+    </div>
+    
 </body>
 
 </html>
