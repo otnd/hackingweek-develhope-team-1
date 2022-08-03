@@ -3,7 +3,7 @@ const nextButton = document.getElementById("next-button");
 const table = document.querySelector('table');
 const tbody = document.querySelector('tbody');
 const select = document.getElementById('table-filter');
-let baseUrl = 'https://api.spaceflightnewsapi.net/v3/articles';
+const baseUrl = 'https://api.spaceflightnewsapi.net/v3/articles';
 const articleSection = document.getElementById('article-section')
 const articleBtn = document.getElementById('article-list')
 
@@ -15,22 +15,22 @@ articleBtn.addEventListener('click', () => {
 
 async function createTable(endpoint) {
   //richiede gli articoli; 
-  let response = await fetch(endpoint);
-  let articles = await response.json();
+  const response = await fetch(endpoint);
+  const articles = await response.json();
 
   //genera la tabella in base agli articoli fetchati;
   articles.forEach(article => {
     //crea una riga per ogni elemento;
-    let tr = document.createElement('tr');
+    const tr = document.createElement('tr');
     tbody.append(tr);
     //crea 4 celle per ogni riga;
     for (i = 0; i < 4; i++) {
-      let td = document.createElement('td');
+      const td = document.createElement('td');
       tr.append(td);
 
       //queste condizioni permettono di disporre dinamicamente ogni contenuto, per tipologia, nella sua colonna;
       if (i == 0) {
-        let img = document.createElement('img');
+        const img = document.createElement('img');
         img.setAttribute('src', `${article.imageUrl}`);
         img.setAttribute('width', '100px');
         td.append(img);
@@ -39,11 +39,11 @@ async function createTable(endpoint) {
         td.innerHTML = article.title;
       }
       if (i == 2) {
-        let date = article.publishedAt.slice(0, 10);
+        const date = article.publishedAt.slice(0, 10);
         td.innerHTML = date;
       }
       if (i == 3) {
-        let anchor = document.createElement('a');
+        const anchor = document.createElement('a');
         anchor.setAttribute('href', `${article.url}`);
         anchor.classList.add('text-decoration-none', 'link-primary');
         td.append(anchor);
@@ -65,7 +65,7 @@ nextButton.addEventListener('click', () => {
   }
   tbody.innerHTML = '';
   skipArticle += 10;
-  let nextBaseUrl = `${baseUrl}?_start=${skipArticle}`;
+  const nextBaseUrl = `${baseUrl}?_start=${skipArticle}`;
   createTable(nextBaseUrl);
 })
 
@@ -81,19 +81,19 @@ previousButton.addEventListener('click', () => {
   } else {
     tbody.innerHTML = '';
     skipArticle -= 10;
-    let previousBaseUrl = `${baseUrl}?_start=${skipArticle}`;
+    const previousBaseUrl = `${baseUrl}?_start=${skipArticle}`;
     createTable(previousBaseUrl);
   }
 })
 
 //recupera la lista delle opzioni disponibili all'endpoint /info;
 async function getOption() {
-  let response = await fetch('https://api.spaceflightnewsapi.net/v3/info')
-  let data = await response.json();
-  let sources = data.newsSites;
+  const response = await fetch('https://api.spaceflightnewsapi.net/v3/info')
+  const data = await response.json();
+  const sources = data.newsSites;
   //crea un'opzione per ogni elemento dell'array
   sources.map(source => {
-    let option = document.createElement('option');
+    const option = document.createElement('option');
     option.setAttribute('value', `${sources.indexOf(source)}`);
     option.textContent = `${source}`;
     select.append(option);
