@@ -1,7 +1,7 @@
 {
-  "name": "hacking-week",
+  "name": "hw-team-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Hacking Week - Develhope Coding School - Team 1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

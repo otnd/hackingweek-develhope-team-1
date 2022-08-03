@@ -10960,6 +10960,7 @@ aside {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 #calendar-window {
   left: 0;
   right: 0;
@@ -10993,4 +10994,16 @@ aside {
 
 .fc-toolbar-chunk {
   margin-left: 2.75rem;
+=======
+.overlay-show {
+  visibility: visible;
+  opacity: 0.5;
+  transition: all 0.25s;
+}
+
+.overlay-hide {
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+>>>>>>> develop
 }/*# sourceMappingURL=style.css.map */
