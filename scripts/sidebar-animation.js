@@ -22,7 +22,8 @@ const articlesBtnEl = document.getElementById('articles-btn')
 const statsBtnEl = document.getElementById('stats-btn')
 
 calendarBtnEl.addEventListener('click', () => {
-    document.querySelector('#menu-testate').style.display = 'none';
+    statsSection.classList.add('d-none')
+
     articleSection.classList.add('d-none');
     calendarBtnEl.classList.add('active');
     nav.classList.toggle("nav-hide");
@@ -32,6 +33,8 @@ calendarBtnEl.addEventListener('click', () => {
 })
 
 articlesBtnEl.addEventListener('click', () => {
+    statsSection.classList.add('d-none')
+
     articleSection.classList.remove('d-none');
     articlesBtnEl.classList.add('active');
     nav.classList.toggle("nav-hide");
