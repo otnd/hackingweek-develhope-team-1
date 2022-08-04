@@ -3,8 +3,7 @@ const nav = document.querySelector('nav')
 const overlay = document.getElementById('overlay')
 const dayClickWindow = document.getElementById('calendar-window')
 const articleSection = document.getElementById('article-section')
-const graficoTorta = document.getElementById("graficoTorta");
-const graficoBarre = document.getElementById('graficoBarre')
+const statsSection = document.querySelector('.charts')
 
 function sidebarAnimation() {
     nav.classList.toggle("nav-hide")
@@ -23,9 +22,7 @@ const articlesBtnEl = document.getElementById('articles-btn')
 const statsBtnEl = document.getElementById('stats-btn')
 
 calendarBtnEl.addEventListener('click', () => {
-    graficoTorta.style.display = 'none';
     document.querySelector('#menu-testate').style.display = 'none';
-    graficoBarre.style.display = 'none';
     articleSection.classList.add('d-none');
     calendarBtnEl.classList.add('active');
     nav.classList.toggle("nav-hide");
@@ -35,9 +32,6 @@ calendarBtnEl.addEventListener('click', () => {
 })
 
 articlesBtnEl.addEventListener('click', () => {
-    graficoTorta.style.display = 'none';
-    document.querySelector('#menu-testate').style.display = 'none';
-    graficoBarre.style.display = 'none';
     articleSection.classList.remove('d-none');
     articlesBtnEl.classList.add('active');
     nav.classList.toggle("nav-hide");
@@ -47,9 +41,7 @@ articlesBtnEl.addEventListener('click', () => {
 })
 
 statsBtnEl.addEventListener('click', () => {
-    graficoTorta.style.display = 'initial';
-    document.querySelector('#menu-testate').style.display = 'initial';
-    graficoBarre.style.display = 'initial';
+    statsSection.classList.remove('d-none')
     articleSection.classList.add('d-none');
     statsBtnEl.classList.add('active');
     nav.classList.toggle("nav-hide");
