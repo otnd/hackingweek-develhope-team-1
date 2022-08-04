@@ -56,6 +56,7 @@
 
     <!--overlay della pagina all'apertura della sidebar-->
     <div id="overlay" class="bg-dark vh-100 vw-100 position-fixed overlay-show"></div>
+    <!-- sezione tabella -->
     <section class="d-flex-column w-100 h-100 justify-content-center d-none" id="article-section">
         <!--contenitore select e svg-->
         <div id="sel-svg-container" class="d-flex justify-content-between p-5 pt-3">
@@ -87,7 +88,7 @@
         </div>
         <!--tabella-->
         <div id="table-container" class="table-responsive-sm">
-            <table cellpadding="20" class="table table-hover dd-block align-middle">
+            <table cellpadding="20" class="table table-hover align-middle">
                 <thead class="dd-block">
                     <tr class="hidden-head">
                         <td class="fs-5 bordo-0">Immagine</td>
@@ -96,9 +97,7 @@
                         <td class="fs-5 bordo-0">URL</td>
                     </tr>
                 </thead>
-                <div id="tbody-container" class="d-flex-column">
-                    <tbody class="table-group-divider dd-block"></tbody>
-                </div>
+                <tbody class="table-group-divider"></tbody>
                 <tfoot></tfoot>
             </table>
         </div>
