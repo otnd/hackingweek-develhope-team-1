@@ -22,10 +22,12 @@ async function createTable(endpoint) {
   articles.forEach(article => {
     //crea una riga per ogni elemento;
     const tr = document.createElement('tr');
+    tr.classList.add('dd-block')
     tbody.append(tr);
     //crea 4 celle per ogni riga;
     for (i = 0; i < 4; i++) {
       const td = document.createElement('td');
+      td.classList.add('dd-block', 'bordo-0', 'head-space', 'etichette', 'right-align')
       tr.append(td);
 
       //queste condizioni permettono di disporre dinamicamente ogni contenuto, per tipologia, nella sua colonna;

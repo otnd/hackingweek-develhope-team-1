@@ -74,7 +74,7 @@
                     </svg>
                 </div>
                 <!-- numero della pagina corrente-->
-                <div id="number-page"></div>
+                <div id="number-page">0</div>
                 <!--freccia avanti-->
                 <div id="next-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -86,17 +86,19 @@
             </div>
         </div>
         <!--tabella-->
-        <div class="p-5 pt-1">
-            <table cellpadding="20" class="table table-hover">
-                <thead>
-                    <tr>
-                        <td class="fs-5">Immagine</td>
-                        <td class="fs-5">Titolo</td>
-                        <td class="fs-5">Data</td>
-                        <td class="fs-5">URL</td>
+        <div id="table-container" class="table-responsive-sm">
+            <table cellpadding="20" class="table table-hover dd-block align-middle">
+                <thead class="dd-block">
+                    <tr class="hidden-head">
+                        <td class="fs-5 bordo-0">Immagine</td>
+                        <td class="fs-5 bordo-0">Titolo</td>
+                        <td class="fs-5 bordo-0">Data</td>
+                        <td class="fs-5 bordo-0">URL</td>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider"></tbody>
+                <div id="tbody-container" class="d-flex-column">
+                    <tbody class="table-group-divider dd-block"></tbody>
+                </div>
                 <tfoot></tfoot>
             </table>
         </div>

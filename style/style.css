@@ -10810,4 +10810,20 @@ aside {
   cursor: pointer;
 }
 
+#next-button:hover, #previous-button:hover {
+  color: #0d6efd;
+}
+
+#table-container {
+  padding: 3rem;
+  padding-top: 0;
+}
+
+@media screen and (max-width: 494px) {
+  #table-container {
+    padding: 0;
+    width: 100vw;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
