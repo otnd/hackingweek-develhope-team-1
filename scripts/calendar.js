@@ -1,3 +1,7 @@
+const calendarSection = document.getElementById('calendar-section')
+const calendarBtn = document.getElementById('calendar-btn')
+const articlesBtn = document.getElementById('articles-btn')
+const graphBtn = document.getElementById('stats-btn')
 // inizializzazione oggetto calendario
 const calendarEl = document.getElementById('calendar');
 const dayClickWindowEl = document.querySelector('#calendar-window')
@@ -57,26 +61,65 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
     }
 });
 
-
-
-
 //rimuove la finestra quando si clicca al di fuori di questa;
 dayClickWindowEl.addEventListener('click', () => {
     dayClickWindowEl.classList.add('d-none');
     textSection.classList.add('d-none');
 })
 
+//renderizza il calendario al click del pulsante calendar-btn, importante che il render non avvenga prima di quest'evento
+calendarBtn.addEventListener('click', () => {
+    calendarSection.classList.remove('d-none')
 
-// rendering calendario
-calendar.render();
+    // rendering calendario
+    calendar.render();
 
-const buttonNext = document.querySelector('.fc-next-button');
-const buttonPrevious = document.querySelector('.fc-prev-button');
-const view = calendar.view;
+    const buttonNext = document.querySelector('.fc-next-button');
+    const buttonPrevious = document.querySelector('.fc-prev-button');
+    const view = calendar.view;
 
-const todayEndDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)))
-const todayDates = getDates(view.currentStart, todayEndDate)
-dynamicPagination(todayDates)
+    const todayEndDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)))
+    const todayDates = getDates(view.currentStart, todayEndDate)
+    dynamicPagination(todayDates)
+
+
+    //event listener sugli elementi del calendario
+    buttonNext.addEventListener('click', async () => {
+        buttonNext.disabled = true;
+        buttonPrevious.disabled = true;
+        //prende il primo giorno del mese successivo
+        const endDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)))
+
+        //genera l'array di date
+        const dates = getDates(view.currentStart, endDate)
+
+        //inserisce gli eventi
+        await dynamicPagination(dates)
+        buttonNext.disabled = false;
+        buttonPrevious.disabled = false;
+    })
+
+    buttonPrevious.addEventListener('click', async () => {
+        buttonNext.disabled = true;
+        buttonPrevious.disabled = true;
+        const endDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)));
+        const dates = getDates(view.currentStart, endDate);
+        await dynamicPagination(dates);
+        buttonNext.disabled = false;
+        buttonPrevious.disabled = false;
+
+    })
+})
+
+articlesBtn.addEventListener('click', () => {
+    calendarSection.classList.add('d-none')
+
+})
+
+graphBtn.addEventListener('click', () => {
+    calendarSection.classList.add('d-none')
+})
+
 
 
 
@@ -97,8 +140,6 @@ function getDates(start, end) {
 //gestisce dinamicamente l'impaginazione del calendario;
 async function dynamicPagination(dates) {
     let eventsArr = [];
-    buttonNext.disabled = true;
-    buttonPrevious.disabled = true;
 
     //utilizziamo promise.all ed il metodo map sull'array di date generato da getDates(),
     //in questa maniera le request avvengono in parallelo, minimizzando i caricamenti;
@@ -116,7 +157,7 @@ async function dynamicPagination(dates) {
 
             const dataStr = await data.toString();
             const eventObj = {
-                title: `Pubblicazioni: ${dataStr}`,
+                title: `${dataStr} pubblicazioni`,
                 start: `${element}`,
                 end: `${dates[index + 1]}`,
             };
@@ -135,28 +176,7 @@ async function dynamicPagination(dates) {
                 end: event.end,
             }
         ))
-
-    buttonNext.disabled = false;
-    buttonPrevious.disabled = false;
 }
-
-
-buttonNext.addEventListener('click', () => {
-    //prende il primo giorno del mese successivo
-    const endDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)))
-
-    //genera l'array di date
-    const dates = getDates(view.currentStart, endDate)
-
-    //inserisce gli eventi
-    dynamicPagination(dates)
-})
-
-buttonPrevious.addEventListener('click', () => {
-    const endDate = new Date(view.currentEnd.setDate((view.currentEnd.getDate() + 1)));
-    const dates = getDates(view.currentStart, endDate);
-    dynamicPagination(dates);
-})
 
 
 
