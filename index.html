@@ -7,7 +7,12 @@
     <title>Team 1 - Hacking Week</title>
     <link rel="stylesheet" href="style/style.css">
 
+    <!--dipendenze calendario-->
+    <link href='node_modules/fullcalendar/main.css' rel='stylesheet' />
+    <script src='node_modules/fullcalendar/main.js' defer></script>
+
     <script src="scripts/sidebar-animation.js" defer></script>
+    <script src="scripts/calendar.js" defer></script>
 </head>
 
 <body>
@@ -26,15 +31,15 @@
                 <!--lista voci-->
                 <ul class="list-group list-group-flush">
                     <!--voce 'Calendario'-->
-                    <li id="calendar" class="list-group-item list-group-item-light list-group-item-action p-3">
+                    <li id="calendar-btn" class="list-group-item list-group-item-light list-group-item-action p-3">
                         Calendario
                     </li>
                     <!--voce 'Lista articoli'-->
-                    <li id="article-list" class="list-group-item list-group-item-light list-group-item-action p-3">
-                        Lista articoli
+                    <li id="articles-btn" class="list-group-item list-group-item-light list-group-item-action p-3">
+                        Articoli
                     </li>
                     <!--voce 'Statistiche'-->
-                    <li id="stats"
+                    <li id="stats-btn"
                         class="list-group-item list-group-item-light list-group-item-action border-bottom  p-3">
                         Statistiche
                     </li>
@@ -43,16 +48,23 @@
 
             <!--menu icon-->
             <div id="toggle-menu-container" class="d-flex align-items-center text-white position-absolute">
-                <svg id="toggle-menu" class="bg-primary" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                <svg id="toggle-menu" class="bg-primary bi bi-list" xmlns="http://www.w3.org/2000/svg" width="32"
+                    height="32" fill="currentColor" viewbox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </div>
-
         </aside>
     </div>
 
-    <!--overlay della pagina all'apertura della sidebar-->
-    <div id="overlay" class="bg-dark vh-100 vw-100 position-fixed overlay-show"></div>
+    <div id="overlay" class="h-100 w-100 position-fixed"></div>
+
+    <section id="calendar-section" class="d-none">
+        <div id="calendar"></div>
+        <div id="calendar-window" class="h-100 w-100 position-fixed d-none">
+        </div>
+        <div id="calendar-window-text" class="test-div d-flex justify-content-start align-items-center position-fixed flex-column d-none"></div>
+    </section>
 
 </body>
 

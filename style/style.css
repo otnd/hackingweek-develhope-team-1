@@ -10923,7 +10923,7 @@ textarea.form-control-lg {
   }
 }
 #sidebar-container {
-  z-index: 2;
+  z-index: 3;
 }
 
 aside {
@@ -10960,14 +10960,53 @@ aside {
   cursor: pointer;
 }
 
-.overlay-show {
-  visibility: visible;
-  opacity: 0.5;
-  transition: all 0.25s;
+#calendar-window {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1;
 }
 
-.overlay-hide {
-  z-index: 1;
-  visibility: hidden;
-  opacity: 0;
+.test-div {
+  background-color: white;
+  border: 1rem solid #0d6efd;
+  border-radius: 5%;
+  height: 480px;
+  width: 640px;
+  overflow-y: scroll;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+.fc-daygrid-day:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.fc-toolbar-chunk {
+  margin-left: 2.75rem;
+}
+
+#overlay {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2;
+}
+
+@media screen and (max-width: 600px) {
+  #calendar-window-text {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */
