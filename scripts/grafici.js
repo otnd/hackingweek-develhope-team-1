@@ -48,6 +48,7 @@ async function articlesOrigin() {
             responsive: true
         }
     });
+    document.querySelector('#chart-loading-message').style.display = 'none';
 }
 
 articlesOrigin()
