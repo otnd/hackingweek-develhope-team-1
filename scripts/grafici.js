@@ -27,15 +27,15 @@ async function articlesOrigin() {
         percentuale[i] = (testate[i] * 100) / totResult;
     }
 
-    graficoTorta.parentNode.style.height = "600px"
-    graficoTorta.parentNode.style.width = "600px"
+    document.getElementById("graficoTorta").style.height = "600px"
+    document.getElementById("graficoTorta").style.width = "600px"
     new Chart(graficoTorta, {
         type: 'pie',
         data: {
             labels: [elencoTestate[0], elencoTestate[1], elencoTestate[2], elencoTestate[3], elencoTestate[4], elencoTestate[5], elencoTestate[6], elencoTestate[7], elencoTestate[8], elencoTestate[9], elencoTestate[10], elencoTestate[11], elencoTestate[12], elencoTestate[13], elencoTestate[14], elencoTestate[15], elencoTestate[16], elencoTestate[17], elencoTestate[18], elencoTestate[19], elencoTestate[20], elencoTestate[21], elencoTestate[22], elencoTestate[23], elencoTestate[24], elencoTestate[25], elencoTestate[26], elencoTestate[27], elencoTestate[28], elencoTestate[29], elencoTestate[30], elencoTestate[31]],
             datasets: [{
                 label: "Percentuale articoli per testata",
-                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#1a64e4", "#1c415c", "#5a4122", "#447533", "#e3832c", "#bc4f6e", "#a398bb", "#eaeaea"],
+                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#1a64e4", "#1c415c", "#5a4122", "#447533", "#e3832c", "#bc4f6e", "#a398bb", "#eaeaea", "#9CFEC8", "#F04EAA", "#B08D1A", "#32A542", "#FA87A2", "#00C187", "#934449", "#208CF3", "#E5D02A", "#315D1A", "#B5ECD7", "#AE2E02", "#E6030E", "#620D5A", "#6D0F61", "#D8F41D", "#82AD55", "#6F6FA5", "#9B601B"],
                 data: [percentuale[0], percentuale[1], percentuale[2], percentuale[3], percentuale[4], percentuale[5], percentuale[6], percentuale[7], percentuale[8], percentuale[9], percentuale[10], percentuale[11], percentuale[12], percentuale[13], percentuale[14], percentuale[15], percentuale[16], percentuale[17], percentuale[18], percentuale[19], percentuale[20], percentuale[21], percentuale[22], percentuale[23], percentuale[24], percentuale[25], percentuale[26], percentuale[27], percentuale[28], percentuale[29], percentuale[30], percentuale[31]]
             }]
         },

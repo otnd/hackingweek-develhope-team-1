@@ -89,7 +89,7 @@ aside {
 //finestra che mostra i titoli delle pubblicazioni 
 .test-div {
     background-color: white;
-    border: 1rem solid #0d6efd;
+    border: 5px solid #0d6efd;
     border-radius: 5%;
 
     height: 480px;
@@ -112,7 +112,10 @@ aside {
 }
 
 .fc-toolbar-chunk {
-    margin-left: 2.75rem;
+    margin:8px;
+    &:first-child {
+        margin-left:50px;
+    }
 }
 
 //overlay che appare quando la sidebar è visibile
