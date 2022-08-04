@@ -10806,4 +10806,8 @@ aside {
   opacity: 0;
 }
 
+#next-button, #previous-button, #table-filter {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
