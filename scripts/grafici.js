@@ -1,6 +1,6 @@
 const articlesCount = 'https://api.spaceflightnewsapi.net/v3/articles/count';
 // const graficoTorta = document.getElementById("graficoTorta");
-graficoTorta.style.display = 'none';
+// graficoTorta.style.display = 'none';
 document.querySelector('#menu-testate').style.display = 'none';
 
 
