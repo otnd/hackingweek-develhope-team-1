@@ -4,13 +4,7 @@ const table = document.querySelector('table');
 const tbody = document.querySelector('tbody');
 const select = document.getElementById('table-filter');
 const baseUrl = 'https://api.spaceflightnewsapi.net/v3/articles';
-const articleSection = document.getElementById('article-section')
-const articleBtn = document.getElementById('article-list')
 
-//mostra la tabella al click
-articleBtn.addEventListener('click', () => {
-  articleSection.classList.remove('d-none')
-})
 
 
 async function createTable(endpoint) {
