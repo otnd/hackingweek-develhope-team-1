@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.0",
-    "chart.js": "^3.9.0"
+    "chart.js": "^3.9.0",
+    "fullcalendar": "^5.11.2"
   }
 }

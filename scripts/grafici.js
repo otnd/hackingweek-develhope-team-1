@@ -1,18 +1,18 @@
 const articlesCount = 'https://api.spaceflightnewsapi.net/v3/articles/count';
-const graficoTorta = document.getElementById("graficoTorta");
+// const graficoTorta = document.getElementById("graficoTorta");
 graficoTorta.style.display = 'none';
 document.querySelector('#menu-testate').style.display = 'none';
 
 
 const statistics = document.querySelector('#stats');
-const baseUrl = 'https://api.spaceflightnewsapi.net/v3/info';
+const baseUrlGraf = 'https://api.spaceflightnewsapi.net/v3/info';
 const menu = document.querySelector('#menu-testate')
 
 async function articlesOrigin() {
     const totArticles = await fetch(articlesCount);
     const totResult = await totArticles.json();
 
-    const responseTestate = await fetch(baseUrl);
+    const responseTestate = await fetch(baseUrlGraf);
     const resultTestate = await responseTestate.json();
     const elencoTestate = resultTestate.newsSites;
 
@@ -97,7 +97,7 @@ async function monthlyData() {
     console.log(stats.length) //384, 32 testate * 12 mesi
 
     async function creazioneElenco() {
-        const response = await fetch(baseUrl);
+        const response = await fetch(baseUrlGraf);
         const data = await response.json();
         const elenco = data.newsSites;
 
@@ -183,11 +183,3 @@ async function monthlyData() {
 
 
 monthlyData()
-
-
-
-
-statistics.addEventListener('click', () => {
-    graficoTorta.style.display = 'initial';
-    document.querySelector('#menu-testate').style.display = 'initial';
-})
