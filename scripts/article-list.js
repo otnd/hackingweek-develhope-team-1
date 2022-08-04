@@ -67,6 +67,7 @@ nextButton.addEventListener('click', () => {
   }
   tbody.innerHTML = '';
   skipArticle += 10;
+  pageNumber.innerHTML = `${skipArticle / 10}`
   const nextBaseUrl = `${baseUrl}?_start=${skipArticle}`;
   createTable(nextBaseUrl);
 })
@@ -76,6 +77,7 @@ previousButton.addEventListener('click', () => {
     return;
   }
   if (skipArticle == 10) {
+    pageNumber.innerHTML = `0`
     tbody.innerHTML = '';
     createTable(baseUrl);
     skipArticle = 0
@@ -83,6 +85,7 @@ previousButton.addEventListener('click', () => {
   } else {
     tbody.innerHTML = '';
     skipArticle -= 10;
+    pageNumber.innerHTML = `${skipArticle / 10}`
     const previousBaseUrl = `${baseUrl}?_start=${skipArticle}`;
     createTable(previousBaseUrl);
   }
@@ -110,3 +113,29 @@ select.addEventListener('change', () => {
   createTable(selectUrl)
 })
 
+//download csv
+function downloadCsv(separator = ',') {
+  let rows = document.querySelectorAll('tr');
+  let csv = [];
+  for (let x = 0; x < rows.length; x++) {
+      let row = []; 
+      let cols = rows[x].querySelectorAll('td, th');
+      for (let y = 0; y < cols.length; y++) {
+          let data = cols[y].innerText;
+          row.push('"' + data + '"');
+      }
+      csv.push(row.join(separator));
+  }
+  let csvStr = csv.join('\n');
+  let filename = 'export_'+ new Date().toLocaleDateString() + '.csv';
+  let downloadLink = document.createElement('a');
+  downloadLink.style.display = 'none';
+  downloadLink.setAttribute('target', '_blank');
+  downloadLink.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvStr));
+  downloadLink.setAttribute('download', filename);
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+const pageNumber = document.querySelector('#number-page');
