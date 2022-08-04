@@ -63,6 +63,12 @@ aside {
     opacity: 0;
 }
 
+// centratura grafici
+.charts {
+    max-width: 600px;
+    margin: auto;
+}
+
 #next-button, #previous-button, #table-filter {
     cursor: pointer;
 }

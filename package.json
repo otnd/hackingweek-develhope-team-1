@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Hacking Week - Develhope Coding School - Team 1",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.0",
+    "chart.js": "^3.9.0",
     "fullcalendar": "^5.11.2"
   }
 }
