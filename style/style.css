@@ -10940,7 +10940,7 @@ aside {
 }
 
 .nav-hide {
-  margin-left: -256px;
+  margin-left: -300px;
 }
 
 .list-group-item:hover {
@@ -10970,6 +10970,31 @@ aside {
   z-index: 1;
 }
 
+.overlay-hide {
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#next-button, #previous-button, #table-filter {
+  cursor: pointer;
+}
+
+#next-button:hover, #previous-button:hover {
+  color: #0d6efd;
+}
+
+#table-container {
+  padding: 3rem;
+  padding-top: 0;
+}
+
+@media screen and (max-width: 494px) {
+  #table-container {
+    padding: 0;
+    width: 100vw;
+  }
+}
 .test-div {
   background-color: white;
   border: 1rem solid #0d6efd;
