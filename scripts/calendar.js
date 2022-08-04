@@ -10,6 +10,7 @@ const textSection = document.querySelector('.test-div')
 const bookedEvents = [];
 const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
+    locale: 'it',
     dateClick: async function (info) {
         textSection.innerHTML = 'Loading...';
         let dates = [];
