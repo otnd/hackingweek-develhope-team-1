@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({ intents: ["DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGE_TYPING", "GUILDS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_INTEGRATIONS", "GUILD_INVITES", "GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "GUILD_MESSAGE_TYPING", "GUILD_PRESENCES", "GUILD_SCHEDULED_EVENTS", "GUILD_VOICE_STATES", "GUILD_VOICE_STATES", "GUILD_WEBHOOKS"] });
+//il token non può essere condiviso, trattandosi di una chiave privata, per questo il file .json nella quale è contenuto non è nella repo
 const { token } = require('./config.json');
 
 client.on('message', async msg => {
